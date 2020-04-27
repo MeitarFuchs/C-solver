@@ -111,44 +111,71 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named solverEx3
+# Target rules for targets named solver
 
 # Build rule for target.
-solverEx3: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 solverEx3
-.PHONY : solverEx3
+solver: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 solver
+.PHONY : solver
 
 # fast build rule for target.
-solverEx3/fast:
-	$(MAKE) -f CMakeFiles/solverEx3.dir/build.make CMakeFiles/solverEx3.dir/build
-.PHONY : solverEx3/fast
+solver/fast:
+	$(MAKE) -f CMakeFiles/solver.dir/build.make CMakeFiles/solver.dir/build
+.PHONY : solver/fast
 
-main.o: main.cpp.o
+Test.o: Test.cpp.o
 
-.PHONY : main.o
+.PHONY : Test.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/solverEx3.dir/build.make CMakeFiles/solverEx3.dir/main.cpp.o
-.PHONY : main.cpp.o
+Test.cpp.o:
+	$(MAKE) -f CMakeFiles/solver.dir/build.make CMakeFiles/solver.dir/Test.cpp.o
+.PHONY : Test.cpp.o
 
-main.i: main.cpp.i
+Test.i: Test.cpp.i
 
-.PHONY : main.i
+.PHONY : Test.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/solverEx3.dir/build.make CMakeFiles/solverEx3.dir/main.cpp.i
-.PHONY : main.cpp.i
+Test.cpp.i:
+	$(MAKE) -f CMakeFiles/solver.dir/build.make CMakeFiles/solver.dir/Test.cpp.i
+.PHONY : Test.cpp.i
 
-main.s: main.cpp.s
+Test.s: Test.cpp.s
 
-.PHONY : main.s
+.PHONY : Test.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/solverEx3.dir/build.make CMakeFiles/solverEx3.dir/main.cpp.s
-.PHONY : main.cpp.s
+Test.cpp.s:
+	$(MAKE) -f CMakeFiles/solver.dir/build.make CMakeFiles/solver.dir/Test.cpp.s
+.PHONY : Test.cpp.s
+
+solver.o: solver.cpp.o
+
+.PHONY : solver.o
+
+# target to build an object file
+solver.cpp.o:
+	$(MAKE) -f CMakeFiles/solver.dir/build.make CMakeFiles/solver.dir/solver.cpp.o
+.PHONY : solver.cpp.o
+
+solver.i: solver.cpp.i
+
+.PHONY : solver.i
+
+# target to preprocess a source file
+solver.cpp.i:
+	$(MAKE) -f CMakeFiles/solver.dir/build.make CMakeFiles/solver.dir/solver.cpp.i
+.PHONY : solver.cpp.i
+
+solver.s: solver.cpp.s
+
+.PHONY : solver.s
+
+# target to generate assembly for a file
+solver.cpp.s:
+	$(MAKE) -f CMakeFiles/solver.dir/build.make CMakeFiles/solver.dir/solver.cpp.s
+.PHONY : solver.cpp.s
 
 # Help Target
 help:
@@ -157,11 +184,14 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... solverEx3"
+	@echo "... solver"
 	@echo "... edit_cache"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... Test.o"
+	@echo "... Test.i"
+	@echo "... Test.s"
+	@echo "... solver.o"
+	@echo "... solver.i"
+	@echo "... solver.s"
 .PHONY : help
 
 

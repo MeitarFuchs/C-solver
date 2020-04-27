@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <complex>
-
 using namespace  std;
 namespace solver{
 
@@ -24,48 +23,58 @@ namespace solver{
         {};
 
     };
-    double solve(RealVariable x);
+    double solve(RealVariable r);
 
-    std::complex<double> solve(ComplexVariable y);
+    complex<double> solve(ComplexVariable c);
 
-    std::complex<double> operator +(double x, std::complex<double> y);
-    std::complex<double> operator -(double x, std::complex<double> y);
-    RealVariable operator *(double x, RealVariable y );
-    RealVariable operator ^(double x, RealVariable y );
-    RealVariable operator +(double x, RealVariable y );
-    RealVariable operator -(double x, RealVariable y );
-    RealVariable operator /(double x, RealVariable y );
-    RealVariable operator ==(double x, RealVariable y );
-    RealVariable operator *(RealVariable y, double x );
-    RealVariable operator ^(RealVariable y, double x );
-    RealVariable operator +(RealVariable y, double x );
-    RealVariable operator -(RealVariable y, double x );
-    RealVariable operator /(RealVariable y, double x );
-    RealVariable operator ==(RealVariable y, double x );
-    RealVariable operator *(RealVariable x, RealVariable y );
-    RealVariable operator ^(RealVariable x, RealVariable y );
-    RealVariable operator +(RealVariable x, RealVariable y );
-    RealVariable operator -(RealVariable x, RealVariable y );
-    RealVariable operator /(RealVariable x, RealVariable y );
-    RealVariable operator ==(RealVariable x, RealVariable y );
-    ComplexVariable operator *(std::complex<double> x, ComplexVariable y );
-    ComplexVariable operator ^(std::complex<double> x, ComplexVariable y );
-    ComplexVariable operator +(std::complex<double> x, ComplexVariable y );
-    ComplexVariable operator -(std::complex<double> x, ComplexVariable y );
-    ComplexVariable operator /(std::complex<double> x, ComplexVariable y );
-    ComplexVariable operator ==(std::complex<double> x, ComplexVariable y );
-    ComplexVariable operator *(ComplexVariable y, std::complex<double> x );
-    ComplexVariable operator ^(ComplexVariable y, std::complex<double> x );
-    ComplexVariable operator +(ComplexVariable y, std::complex<double> x );
-    ComplexVariable operator -(ComplexVariable y, std::complex<double> x );
-    ComplexVariable operator /(ComplexVariable y, std::complex<double> x );
-    ComplexVariable operator ==(ComplexVariable y, std::complex<double> x );
-    ComplexVariable operator *(ComplexVariable x, ComplexVariable y );
-    ComplexVariable operator ^(ComplexVariable x, ComplexVariable y );
-    ComplexVariable operator +(ComplexVariable x, ComplexVariable y );
-    ComplexVariable operator -(ComplexVariable x, ComplexVariable y );
-    ComplexVariable operator /(ComplexVariable x, ComplexVariable y );
-    ComplexVariable operator ==(ComplexVariable x, ComplexVariable y );
+
+    RealVariable operator+(RealVariable r, double x );
+    RealVariable operator-(RealVariable r, double x );
+    RealVariable operator*(RealVariable r, double x );
+    RealVariable operator^(RealVariable r, double x );
+    RealVariable operator/(RealVariable r, double x );
+    RealVariable operator==(RealVariable r, double x );
+
+
+    RealVariable operator+(double x, RealVariable r );
+    RealVariable operator-(double x, RealVariable r );
+    RealVariable operator*(double x, RealVariable r );
+    RealVariable operator^(double x, RealVariable r );
+    RealVariable operator/(double x, RealVariable r );
+    RealVariable operator==(double x, RealVariable r );
+
+
+    RealVariable operator+(RealVariable r1, RealVariable r );
+    RealVariable operator-(RealVariable r1, RealVariable r );
+    RealVariable operator*(RealVariable r1, RealVariable r);
+    RealVariable operator^(RealVariable r1, RealVariable r );
+    RealVariable operator/(RealVariable r1, RealVariable r );
+    RealVariable operator==(RealVariable r1, RealVariable r );
+
+    ComplexVariable operator+(ComplexVariable c, std::complex<double> x );
+    ComplexVariable operator-(ComplexVariable c, std::complex<double> x );
+    ComplexVariable operator*(ComplexVariable c, std::complex<double> x );
+    ComplexVariable operator^(ComplexVariable c, std::complex<double> x );
+    ComplexVariable operator/(ComplexVariable c, std::complex<double> x );
+    ComplexVariable operator==(ComplexVariable c, std::complex<double> x );
+
+    ComplexVariable operator+(std::complex<double> x, ComplexVariable c );
+    ComplexVariable operator-(std::complex<double> x, ComplexVariable c );
+    ComplexVariable operator*(std::complex<double> x, ComplexVariable c );
+    ComplexVariable operator^(std::complex<double> x, ComplexVariable c );
+    ComplexVariable operator/(std::complex<double> x, ComplexVariable c );
+    ComplexVariable operator==(std::complex<double> x, ComplexVariable c );
+
+
+    ComplexVariable operator+(ComplexVariable c1, ComplexVariable c );
+    ComplexVariable operator-(ComplexVariable c1, ComplexVariable c);
+    ComplexVariable operator*(ComplexVariable c1, ComplexVariable c );
+    ComplexVariable operator^(ComplexVariable c1, ComplexVariable c );
+    ComplexVariable operator/(ComplexVariable c1, ComplexVariable c );
+    ComplexVariable operator==(ComplexVariable c1, ComplexVariable c );
+
+    complex<double> operator+(double x, std::complex<double> c);
+    complex<double> operator-(double x, std::complex<double> c);
 };
 
 

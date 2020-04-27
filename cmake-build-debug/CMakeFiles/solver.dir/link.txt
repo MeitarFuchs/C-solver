@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/solver.dir/solver.cpp.o CMakeFiles/solver.dir/Test.cpp.o  -o solver 
