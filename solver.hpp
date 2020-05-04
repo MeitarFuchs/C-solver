@@ -7,11 +7,37 @@ namespace solver{
 
     class RealVariable
     {
-        double rel;
+        double a; //coff of power 2
+        double b; //coff of power 1
+        double c; //freeVER
+
         public:
 
-        RealVariable()
-        {};
+            RealVariable()
+            {
+                a=0.0;
+                b=1.0;
+                c=0.0;
+            };
+            RealVariable(double aa, double bb, double cc)
+            {
+                a=aa;
+                b=bb;
+                c=cc;
+            };
+
+        double getA()
+        {return a;}
+        double getB()
+        {return b;}
+        double getC()
+        {return c;}
+        void setA(double x)
+        { a=x;}
+        void setB(double x)
+        {b=x;}
+        void setC(double x)
+        { c=x;}
 
     };
 
