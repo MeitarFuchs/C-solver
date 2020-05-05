@@ -120,6 +120,10 @@ namespace solver{
 
     complex<double> operator+(double x, std::complex<double> c);
     complex<double> operator-(double x, std::complex<double> c);
+
+    ComplexVariable operator^(ComplexVariable c1 , double x );
+    ComplexVariable operator==(ComplexVariable com1, double y );
+
 };
 
 

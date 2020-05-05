@@ -14,37 +14,55 @@ double solver::solve(RealVariable r)
 
     if (a==0 && b==0 && c==0) throw exception();//"no solotion"
     if (a==0&&b==0&& c!=0)throw exception();//"no solotion"
-    if (a!=0&&b==0&& c==0) return 0;
-    if (a==0&&b!=0&& c==0) return 0;
-    if (a==0&&b!=0&& c!=0) return (-(c))/b;
+    if (a!=0&&b==0&& c==0) {
+        cout << "11111" << "\n";
+        return 0;
+    }
+    if (a==0&&b!=0&& c==0) {
+        cout << "2222" << "\n";
+        return 0;
+    }
+    if (a==0&&b!=0&& c!=0) {
+        cout << "3333" << "\n";
+        return (-(c)) / b;
+    }
+
     if (a!=0&&b==0&& c!=0)
     {
+        cout<<"444444"<<"\n";
         if ((-c)<0)
             throw exception();
         else {
             double newC=-c;
             cout<<"sqrt(newC): "<<sqrt(newC);
-            return sqrt(newC);
+            return sqrt((newC /a));
         }
     }
-    if (a!=0&&b!=0&& c==0) return 0; // or  (-(b))/a
-
+    if (a!=0&&b!=0&& c==0) {
+        cout << "5555" << "\n";
+        return 0; // or  (-(b))/a
+    }
     if (a!=0 && b!=0 && c!=0)
     {
-        for (int i = 0; i < 100; i++)
-            for (int j = 0; j < 100; j++) {
+        cout<<"6666"<<"\n";
+        for (int i = -100; i < 100; i++)
+            for (int j = -100; j < 100; j++) {
                 if (i * j == c && i + j == b) {
                     cout<<"the -i is:  "<<(-i);
                     return (-(i)); //newR == RealVariable(0.0, 0.0, -(i));
                 }
             }
+
+        double ans= ((-b)+(sqrt((b*b)-4*a*c)))/ (2*a);
+            return ans;
     }
         return -9999;
 }
 
 
 
-std::complex<double> solver::solve(ComplexVariable com){
+std::complex<double> solver::solve(ComplexVariable com)
+{
     complex<double> a = com.getA();
     complex<double> b = com.getB();
     complex<double> c = com.getC();
@@ -57,14 +75,20 @@ std::complex<double> solver::solve(ComplexVariable com){
     if (a==complex<double>(0,0) && b!=complex<double>(0,0) &&c!=complex<double>(0,0))
         return  ((-c)/b) ;
     if (a!=complex<double>(0,0) && b==complex<double>(0,0) &&c!=complex<double>(0,0))
-        return sqrt( ((-c)/b) );
+        return sqrt( ((-c)/a) );
     if (a!=complex<double>(0,0) && b!=complex<double>(0,0) &&c!=complex<double>(0,0))
     {
-        for (int i = 0; i < 100; i++)
-            for (int j = 0; j < 100; j++) {
-                if ((double)(i * j) == c && (double)(i + j) == b)
+        for (int i = -100; i < 100; i++)
+            for (int j = -100; j < 100; j++) {
+                if ((double)(i * j) == c && (double)(i + j) == b) {
+
                     return (-(i));
+                }
             }
+
+//        double ans= ((-b)+(sqrt((b*b)-complex<double>(4,0)*a*c)))/ (complex<double>(2,0)*a);
+//        return ans;
+
     }
 
 
@@ -208,7 +232,7 @@ RealVariable solver::operator==(RealVariable r1, RealVariable r )
     cout<<"r:  "<<r.getA()<<"  "<<r.getB()<<"  "<<r.getC()<<"\n";
 
 
-    RealVariable newR = RealVariable(r1.getA()-r.getA(), r1.getA()-r.getB(), r1.getA()-r.getC());
+    RealVariable newR = RealVariable(r1.getA()-r.getA(), r1.getB()-r.getB(), r1.getC()-r.getC());
     cout<<"rel == rel:  "<<newR.getA()<<"  "<<newR.getB()<<"  "<<newR.getC();
     return newR;
 }
@@ -238,11 +262,12 @@ ComplexVariable solver::operator/(ComplexVariable com, complex<double> x )
 }
 ComplexVariable solver::operator^(ComplexVariable com, complex<double> x )
 {
+
    return com;
 }
 ComplexVariable solver::operator==(ComplexVariable com, complex<double> x )
 {
-    ComplexVariable newCC=ComplexVariable (com.getA(), com.getB(), com.getC()-x );
+    ComplexVariable newCC=com -x;
     return newCC;
 }
 
@@ -263,6 +288,7 @@ ComplexVariable solver::operator*(std::complex<double> x, ComplexVariable com )
 }
 ComplexVariable solver::operator/(std::complex<double> x, ComplexVariable com )
 {
+    if (com.getA()==complex<double>(0,0) ) throw exception();
     ComplexVariable newCC=ComplexVariable ( x/(com.getA()), x/(com.getB()), x/(com.getC()));
     return newCC;
 }
@@ -302,6 +328,37 @@ ComplexVariable solver::operator==(ComplexVariable com1, ComplexVariable com )
     return newCC;
 }
 
+
+ComplexVariable solver::operator^(ComplexVariable com1, double y )
+{
+    if(y>2){
+        throw std::logic_error("The Power  more then 2\n");
+    }
+    if(y==0){
+        ComplexVariable com =  ComplexVariable(0, 0, 1);
+        return com;
+    }
+    if(y<0){
+        throw std::logic_error("The Power lower than 0\n");
+    }
+    if(y==1) {
+        ComplexVariable com= ComplexVariable (com1.getA(),com1.getB(),com1.getC());
+        return com;
+    }
+    if(y==2) {
+        ComplexVariable com = ComplexVariable (com1.getB(),0.0, 0.0);
+        return com;
+    }
+    return com1;
+}
+
+
+ComplexVariable solver::operator==(ComplexVariable com1, double y )
+{
+    ComplexVariable com= com1-y;
+    cout<<"com:    a: "<<com.getA()<<" b:  "<<com.getB()<<" c:  "<<com.getC()<<"\n";
+    return com;
+}
 complex<double> solver::operator+(double x, complex<double> c)
 {
     return c;
