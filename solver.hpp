@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <complex>
+#define  EPS 0.0001
 using namespace  std;
 
 namespace solver{
