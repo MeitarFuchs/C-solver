@@ -3,6 +3,7 @@
 #include <iostream>
 #include <complex>
 using namespace  std;
+
 namespace solver{
 
     class RealVariable
@@ -13,18 +14,14 @@ namespace solver{
 
         public:
 
-            RealVariable()
-            {
-                a=0.0;
-                b=1.0;
-                c=0.0;
-            };
-            RealVariable(double aa, double bb, double cc)
-            {
-                a=aa;
-                b=bb;
-                c=cc;
-            };
+        RealVariable():a(0),b(1),c(0){};
+
+        RealVariable(double aa, double bb, double cc)
+        {
+            a=aa;
+            b=bb;
+            c=cc;
+        };
 
         double getA()
         {return a;}
@@ -43,10 +40,31 @@ namespace solver{
 
     class ComplexVariable
     {
-        complex<double> com;
+        complex<double> a;
+        complex<double> b;
+        complex<double> c;
+
         public:
-        ComplexVariable()
-        {};
+        ComplexVariable():a(complex<double>(0,0)),b(complex<double>(1,0)),c(complex<double>(0,0)){};
+
+        ComplexVariable(complex<double> aa,complex<double> bb,complex<double> cc){
+            this->a=aa;
+            this->b=bb;
+            this->c=cc;
+        }
+
+        complex<double> getA()
+        {return a;}
+        complex<double> getB()
+        {return b;}
+        complex<double> getC()
+        {return c;}
+        void setA(double x)
+        { a=x;}
+        void setB(double x)
+        {b=x;}
+        void setC(double x)
+        { c=x;}
 
     };
     double solve(RealVariable r);
