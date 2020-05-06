@@ -14,29 +14,16 @@ namespace solver{
         double c; //freeVER
 
         public:
-
         RealVariable():a(0),b(1),c(0){};
-
         RealVariable(double aa, double bb, double cc)
         {
             a=aa;
             b=bb;
             c=cc;
         };
-
-        double getA()
-        {return a;}
-        double getB()
-        {return b;}
-        double getC()
-        {return c;}
-        void setA(double x)
-        { a=x;}
-        void setB(double x)
-        {b=x;}
-        void setC(double x)
-        { c=x;}
-
+        double getA() {return a;}
+        double getB() {return b;}
+        double getC() {return c;}
     };
 
     class ComplexVariable
@@ -54,19 +41,9 @@ namespace solver{
             this->c=cc;
         }
 
-        complex<double> getA()
-        {return a;}
-        complex<double> getB()
-        {return b;}
-        complex<double> getC()
-        {return c;}
-        void setA(double x)
-        { a=x;}
-        void setB(double x)
-        {b=x;}
-        void setC(double x)
-        { c=x;}
-
+        complex<double> getA() {return a;}
+        complex<double> getB() {return b;}
+        complex<double> getC() {return c;}
     };
     double solve(RealVariable r);
 
@@ -117,9 +94,6 @@ namespace solver{
     ComplexVariable operator^(ComplexVariable c1, ComplexVariable c );
     ComplexVariable operator/(ComplexVariable c1, ComplexVariable c );
     ComplexVariable operator==(ComplexVariable c1, ComplexVariable c );
-
-    complex<double> operator+(double x, std::complex<double> c);
-    complex<double> operator-(double x, std::complex<double> c);
 
     ComplexVariable operator^(ComplexVariable c1 , double x );
     ComplexVariable operator==(ComplexVariable com1, double y );
